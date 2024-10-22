@@ -14,7 +14,7 @@ transform = transforms.Compose([
 ])
 dataset = LungCancerDataset(transform)
 
-epochs = 5
+epochs = 40
 batch_size = 32
 learning_rate = 0.001
 
@@ -28,7 +28,7 @@ device = 'cuda' if torch.cuda.is_available() else 'cpu'
 model = Model().to(device)
 
 criterion = nn.CrossEntropyLoss()
-optimizer = optim.SGD(model.parameters(), lr=learning_rate)
+optimizer = optim.Adam(model.parameters(), lr=learning_rate)
 
 losses = []
 for i in range(epochs):
