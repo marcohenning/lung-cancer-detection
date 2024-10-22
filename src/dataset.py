@@ -15,7 +15,7 @@ class LungCancerDataset(Dataset):
 
     def __getitem__(self, idx):
         image_path = os.path.join('dataset', self.dataframe.iloc[idx, 0])
-        image = Image.open(image_path)
+        image = Image.open(image_path).convert('L')
         image_transformed = self.transform(image)
         label = self.dataframe.iloc[idx, 1]
         return image_transformed, label
