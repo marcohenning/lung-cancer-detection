@@ -6,6 +6,7 @@ from torch.utils.data import DataLoader, random_split
 import matplotlib.pyplot as plt
 from model import Model
 from dataset import LungCancerDataset
+from prettytable import PrettyTable
 
 
 transform = transforms.Compose([
@@ -32,6 +33,9 @@ criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=learning_rate)
 
 losses = []
+losses_table = PrettyTable()
+losses_table.field_names = ['Epoch', 'Loss']
+
 for i in range(epochs):
     for images, labels in training_dataloader:
         images = images.to(device)
@@ -43,7 +47,10 @@ for i in range(epochs):
         optimizer.step()
 
     losses.append(loss.item())
-    print(loss.item())
+    if i == 0 or (i + 1) % 2 == 0:
+        losses_table.add_row([i + 1, f'{loss.item():.10f}'])
+
+print(losses_table)
 
 correct = 0
 model.eval()
@@ -55,7 +62,7 @@ with torch.no_grad():
         _, predicted = torch.max(predictions.data, 1)
         correct += (predicted == labels).sum().item()
 
-print((correct / testing_split) * 100)
+print(f'Test Accuracy: {(correct / testing_split * 100):.2f}% ({correct}/{testing_split})')
 
 plt.get_current_fig_manager().set_window_title('Training')
 plt.plot(range(epochs), losses)
