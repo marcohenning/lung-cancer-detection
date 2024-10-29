@@ -2,7 +2,7 @@
 
 A machine learning model that detects and classifies lung cancer based on histopathological images.
 
-Image...
+![Main](https://github.com/user-attachments/assets/781790f3-a425-4057-9d8a-a36d6473aa16)
 
 ## About
 
@@ -50,7 +50,7 @@ The neural network was trained for 40 epochs with a learning rate of 0.001 using
 +-------+--------------+
 ```
 
-Image...
+![Training](https://github.com/user-attachments/assets/b776dbee-047e-4631-bff1-9f0735a28a91)
 
 The model achieved an accuracy of 95.71% on the testing set.
 
