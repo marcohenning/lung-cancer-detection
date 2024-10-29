@@ -1,8 +1,8 @@
-# Lung Cancer Detection
+<h1 align="center">Lung Cancer Detection</h1>
 
-A machine learning model that detects and classifies lung cancer based on histopathological images.
+<p align="center">A machine learning model that detects and classifies lung cancer based on histopathological images.</p>
 
-![Main](https://github.com/user-attachments/assets/781790f3-a425-4057-9d8a-a36d6473aa16)
+<p align="center"><img src="https://github.com/user-attachments/assets/781790f3-a425-4057-9d8a-a36d6473aa16" width="500"></p>
 
 ## About
 
