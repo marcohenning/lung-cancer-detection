@@ -3,6 +3,7 @@ import torch.nn as nn
 import torch.optim as optim
 from torchvision import transforms
 from torch.utils.data import DataLoader, random_split
+import matplotlib.pyplot as plt
 from model import Model
 from dataset import LungCancerDataset
 
@@ -55,3 +56,9 @@ with torch.no_grad():
         correct += (predicted == labels).sum().item()
 
 print((correct / testing_split) * 100)
+
+plt.get_current_fig_manager().set_window_title('Training')
+plt.plot(range(epochs), losses)
+plt.xlabel('Epoch')
+plt.ylabel('Loss')
+plt.show()
